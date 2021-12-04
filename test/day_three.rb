@@ -25,4 +25,11 @@ class Day3Test < Minitest::Test
     assert_equal(9, day_three.epsilon_rate)
     assert_equal(198, day_three.power_rate)
   end
+
+  def test_life_support_rating_calculation
+    day_three = AOC::Day3.new(INPUT)
+    assert_equal(23, day_three.oxygen_generator_rating)
+    assert_equal(10, day_three.co2_generator_rating)
+    assert_equal(230, day_three.life_support_rating)
+  end
 end
