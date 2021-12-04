@@ -17,8 +17,13 @@ class Day1Test < Minitest::Test
     263
   ]
 
-  def test_basic_input
-    output = AOC::Day1.new(INPUT).run
+  def test_basic_input_simple_depth_check
+    output = AOC::Day1.new(INPUT).simple_depth_check
     assert_equal(7, output)
+  end
+
+  def test_basic_input_accumulated_depth_check
+    output = AOC::Day1.new(INPUT).accumulated_depth_check
+    assert_equal(5, output)
   end
 end
