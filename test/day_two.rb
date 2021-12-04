@@ -20,7 +20,7 @@ class Day2Test < Minitest::Test
   def test_navigation_sequence
     @day_two.run_sequence
 
-    assert_equal(10, @day_two.depth)
+    assert_equal(60, @day_two.depth)
     assert_equal(15, @day_two.horizontal_position)
   end
 end

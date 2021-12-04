@@ -6,6 +6,7 @@ module AOC
       @sequence = sequence
       @depth = 0
       @horizontal_position = 0
+      @aim = 0
     end
 
     def self.from_input(input)
@@ -19,15 +20,17 @@ module AOC
     end
 
     def forward(distance)
-      @horizontal_position += distance.to_i
+      distance = distance.to_i
+      @horizontal_position += distance
+      @depth += @aim * distance
     end
 
     def down(distance)
-      @depth += distance.to_i
+      @aim += distance.to_i
     end
 
     def up(distance)
-      @depth -= distance.to_i
+      @aim -= distance.to_i
     end
   end
 end
