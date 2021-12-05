@@ -27,7 +27,7 @@ class Day4Test < Minitest::Test
   EOF
 
   def test_bingo
-    day_three = AOC::Day4.new(INPUT)
-    assert_equal(4512, day_three.play)
+    day_four = AOC::Day4.new(INPUT)
+    assert_equal(1924, day_four.play)
   end
 end

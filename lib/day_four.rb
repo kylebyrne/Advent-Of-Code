@@ -33,6 +33,14 @@ module AOC
         row.reject(&:marked).map(&:value)
       }.sum
     end
+
+    def complete
+      @completed = true
+    end
+
+    def completed?
+      @completed
+    end
   end
 
   class Day4
@@ -46,11 +54,19 @@ module AOC
     end
 
     def play
+      boards_completed = 0
       @numbers.each do |number|
         @boards.each do |board|
+          next if board.completed?
+
           board.mark_number(number)
 
           if board.bingo?
+            board.complete
+            boards_completed += 1
+          end
+
+          if boards_completed == @boards.size
             return board.score * number
           end
         end
