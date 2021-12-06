@@ -14,9 +14,24 @@ module AOC
         range = [start_point.y, end_point.y].sort
         (range[0]..range[1]).map { |y| Point.new(start_point.x, y) }
       else
-        range = [start_point.x, end_point.x].sort
-        (range[0]..range[1]).map { |x| Point.new(x, start_point.y) }
+        (left_most_point.x..right_most_point.x).map { |x| Point.new(x, (gradient * x + y_intercept).to_i) }
       end
+    end
+
+    def left_most_point
+      start_point.x < end_point.x ? start_point : end_point
+    end
+
+    def right_most_point
+      start_point.x < end_point.x ? end_point : start_point
+    end
+
+    def gradient
+      (right_most_point.y - left_most_point.y).to_f / (right_most_point.x - left_most_point.x)
+    end
+
+    def y_intercept
+      left_most_point.y - gradient * left_most_point.x
     end
   end
 
@@ -29,17 +44,11 @@ module AOC
     end
 
     def overlapping_vents
-      points = horizontal_or_vertical_lines.
+      points = @lines.
         flat_map(&:points_covered).
         tally.
         filter{ |_, count| count > 1 }.
         count
-    end
-
-    def horizontal_or_vertical_lines
-      @lines.filter do |line|
-        line.horizontal? || line.vertical?
-      end
     end
   end
 end

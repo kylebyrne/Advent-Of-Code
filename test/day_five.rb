@@ -19,6 +19,6 @@ class Day5Test < Minitest::Test
 
   def test_overlapping_hydrothermal_vents
     day_five = AOC::Day5.new(INPUT)
-    assert_equal(5, day_five.overlapping_vents)
+    assert_equal(12, day_five.overlapping_vents)
   end
 end
