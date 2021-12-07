@@ -14,7 +14,8 @@ module AOC
 
     def calculate_fuel_for_position(position)
       @starting_state.map { |start|
-        (position - start).abs
+        difference = (position - start).abs
+        0.5 * difference * (difference + 1)
       }.sum
     end
 

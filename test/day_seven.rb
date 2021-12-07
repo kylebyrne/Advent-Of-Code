@@ -7,6 +7,6 @@ class Day7Test < Minitest::Test
   INPUT = [16,1,2,0,4,2,7,1,2,14]
 
   def test_minimum_fuel
-    assert_equal(37, AOC::Day7.new(INPUT).minimum_fuel)
+    assert_equal(168, AOC::Day7.new(INPUT).minimum_fuel)
   end
 end
