@@ -21,4 +21,8 @@ class Day8Test < Minitest::Test
   def test_unique_digits_in_output
     assert_equal(26, AOC::Day8.new(INPUT).unique_values_in_output)
   end
+
+  def test_sum_output_values
+    assert_equal(61229, AOC::Day8.new(INPUT).output_value)
+  end
 end
